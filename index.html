@@ -1,4 +1,6 @@
-<!--this is my hw assignment 1 which is changing by hardik :P -->
+<!-- this is my github URL
+https://github.com/Hardish/javascript101.git
+-->
 <!DOCTYPE html>
 <head>
         <title>Javascript Basics</title>
@@ -84,7 +86,6 @@
     }
 
     function initDocument() {
-        var toggleFlag=false;
         clearDocument();
         var rootDiv = document.createElement('div');
         rootDiv.id = 'rootContainer';
@@ -199,7 +200,7 @@
     function cleanandcountDisplay() {
         console.log('CLEAN AND COUNT CHARACTERS');
         var cleanedandcountStartups = [];   
-        // var countStartups = [];    
+        // var countStartups = [];   
         for (var i=0;i<chicagoStartups.length;i++){
                 var temp = chicagoStartups[i].replace(/\s\s+/g, ' ');
                 var temp2 = JSON.stringify(getOccurencies(chicagoStartups[i].toLowerCase()));
@@ -234,6 +235,7 @@
                     childDiv.appendChild(text);
                     toggleContainer.appendChild(childDiv);
                 });
+				
             }        
             else {
                     toggleSpanDisplay().forEach(function(startup, index) {
@@ -241,7 +243,8 @@
                         var text = document.createTextNode(startup); 
                         childSpan.appendChild(text);
                         toggleContainer.appendChild(childSpan);
-                    });               
+                    });  
+				
                 }
             }
     }

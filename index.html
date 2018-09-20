@@ -2,19 +2,14 @@
 https://github.com/Hardish/javascript101.git
 -->
 <!DOCTYPE html>
-<head>
-        <title>Javascript Basics</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/main.css">
-</head>
- <html>
+<html>
     <h3>Javascript Basics</h3>
-
+    <!-- <button onclick="cleanAndCountCharacters()">
+        clean and count words
+    </button> -->
     <body>
     </body>
-</html> 
+</html>
 
 
 <style>
@@ -98,6 +93,7 @@ https://github.com/Hardish/javascript101.git
         });
         rootDiv.appendChild(companyNamesContainer);
         document.body.appendChild(rootDiv);
+        document.body.style.backgroundColor = "grey";
     }
 
     function initReverse() {
@@ -128,13 +124,13 @@ https://github.com/Hardish/javascript101.git
     }     
 
     function initToggle() {
-        var toggleContainer = document.createElement('span');
+        var toggleContainer = document.createElement('div');
         toggleContainer.id = 'toggleContainer';
         var toggleBtn = document.createElement('button');
         var btnText = document.createTextNode('Toggle Display');
         toggleBtn.onclick = toggleDisplay;
         toggleBtn.appendChild(btnText);
-        var toggleButtonContainer = document.createElement('span');
+        var toggleButtonContainer = document.createElement('div');
         toggleButtonContainer.appendChild(toggleBtn);    
         document.getElementById('rootContainer').appendChild(toggleButtonContainer);
         document.getElementById('rootContainer').appendChild(toggleContainer);
@@ -163,6 +159,7 @@ https://github.com/Hardish/javascript101.git
                     var text = document.createTextNode(startup);                                    
                     childDiv.appendChild(text);
                     reverseContainer.appendChild(childDiv);
+                    reverseContainer.style.backgroundColor = "red";
                 });               
             }
         }
@@ -191,7 +188,7 @@ https://github.com/Hardish/javascript101.git
                     var text = document.createTextNode(startup); 
                     childDiv.appendChild(text);
                     cleanandcountContainer.appendChild(childDiv);
-                   
+                    cleanandcountContainer.style.backgroundColor = "gold";
                 });
             }
         }
@@ -222,14 +219,14 @@ https://github.com/Hardish/javascript101.git
 
     function toggleDisplay() {
         var toggleContainer = document.getElementById('toggleContainer');  
-        var toggledDivChicagoStartups = [];              
+        var toggledDivSpanChicagoStartups = [];              
         if (toggleContainer) {
             if (toggleContainer.hasChildNodes()) {
                 while (toggleContainer.hasChildNodes()) {
-                    toggledDivChicagoStartups.push(toggleContainer.firstChild.innerHTML);
+                    toggledDivSpanChicagoStartups.push(toggleContainer.firstChild.innerHTML);
                     toggleContainer.removeChild(toggleContainer.firstChild);
                 }
-                toggleSpanDisplay().forEach(function(startup, index) {
+                toggledDivSpanChicagoStartups.forEach(function(startup, index) {
                     var childDiv = document.createElement('div');
                     var text = document.createTextNode(startup); 
                     childDiv.appendChild(text);
@@ -238,18 +235,20 @@ https://github.com/Hardish/javascript101.git
 				
             }        
             else {
-                    toggleSpanDisplay().forEach(function(startup, index) {
-                        var childSpan = document.createElement('span');
+					
+                toggleDivSpanDisplay().forEach(function(startup, index) {
+                        var childDiv = document.createElement('span');
                         var text = document.createTextNode(startup); 
-                        childSpan.appendChild(text);
-                        toggleContainer.appendChild(childSpan);
+                        childDiv.appendChild(text);
+                        toggleContainer.appendChild(childDiv);
+                        toggleContainer.style.backgroundColor = "blue";
                     });  
 				
                 }
             }
     }
     
-    function toggleSpanDisplay() {
+    function toggleDivSpanDisplay() {
         var toggleStartups = [];        
         for(var i = 0; i < chicagoStartups.length; i++) 
         {
@@ -259,6 +258,9 @@ https://github.com/Hardish/javascript101.git
     }
 
     
+	
+	
+
     function run() {
         initDocument();
         initReverse();
